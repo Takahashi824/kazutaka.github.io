@@ -9,29 +9,34 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
     body { font-family: 'Noto Sans JP', sans-serif; background-color: #f9fafb; }
-    .btn-primary { background-color: #3b82f6; color: white; padding: 16px 32px; border-radius: 8px; font-size: 1.4rem; min-width: 200px; }
-    .btn-primary:hover { background-color: #2563eb; }
+    .btn-primary { background-color: #1d4ed8; color: white; padding: 18px 36px; border-radius: 8px; font-size: 1.5rem; min-width: 220px; display: inline-flex; align-items: center; gap: 8px; }
+    .btn-primary:hover { background-color: #1e40af; }
+    .btn-primary:focus { outline: 3px solid #1e40af; outline-offset: 2px; }
+    .btn-register-green { background-color: #15803d; color: white; padding: 18px 36px; border-radius: 8px; font-size: 1.5rem; min-width: 220px; display: inline-flex; align-items: center; gap: 8px; }
+    .btn-register-green:hover { background-color: #166534; }
+    .btn-register-green:focus { outline: 3px solid #166534; outline-offset: 2px; }
     .btn-secondary { background-color: #6b7280; color: white; padding: 10px 20px; border-radius: 8px; font-size: 1.1rem; }
     .btn-secondary:hover { background-color: #4b5563; }
-    .btn-register { background-color: #3b82f6; color: white; padding: 16px 32px; border-radius: 8px; font-size: 1.4rem; font-weight: 600; min-width: 200px; }
-    .btn-register:hover { background-color: #2563eb; }
-    .btn-register.text-sm { padding: 6px 12px; font-size: 0.9rem; }
+    .btn-register-green.text-sm { padding: 6px 12px; font-size: 0.9rem; min-width: auto; }
     .section { padding: 60px 20px; }
     .card { background-color: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 24px; margin: 16px; }
     .text-large { font-size: 1.6rem; line-height: 2.2rem; }
-    .sticky-contact { position: fixed; bottom: 20px; right: 20px; background-color: #3b82f6; color: white; padding: 10px 20px; border-radius: 8px; z-index: 1000; }
+    .sticky-contact { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
     .carousel { display: flex; overflow: hidden; width: 100%; }
     .carousel-item { flex: 0 0 100%; transition: transform 0.5s ease; }
     .carousel-item img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; }
     .faq-item { margin-bottom: 16px; }
     .faq-answer { display: none; }
     .faq-answer.active { display: block; }
+    .loading::after { content: ''; border: 2px solid white; border-top: 2px solid transparent; border-radius: 50%; width: 16px; height: 16px; animation: spin 1s linear infinite; display: inline-block; margin-left: 8px; }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     @media (max-width: 640px) {
       .text-large { font-size: 1.3rem; }
-      .btn-primary { font-size: 1.2rem; padding: 14px 28px; min-width: 180px; }
-      .btn-register { font-size: 1.2rem; padding: 14px 28px; min-width: 180px; }
+      .btn-primary { font-size: 1.3rem; padding: 16px 32px; min-width: 200px; }
+      .btn-register-green { font-size: 1.3rem; padding: 16px 32px; min-width: 200px; }
       .btn-secondary { font-size: 0.9rem; padding: 8px 16px; }
-      .sticky-contact { font-size: 0.9rem; padding: 8px 16px; }
+      .sticky-contact { font-size: 0.9rem; }
+      .sticky-contact a { padding: 8px 12px; font-size: 0.9rem; }
       .carousel-item img { height: 150px; }
     }
   </style>
@@ -47,8 +52,8 @@
         <a href="#about" class="text-gray-600 hover:text-blue-600">私たちについて</a>
         <a href="#testimonials" class="text-gray-600 hover:text-blue-600">利用者の声</a>
         <a href="#faq" class="text-gray-600 hover:text-blue-600">よくある質問</a>
-        <a href="contact.html" class="text-gray-600 hover:text-blue-600" aria-label="お問い合わせページへ移動">お問い合わせ</a>
-        <a href="register.html" class="btn-register text-sm" aria-label="会員登録ページへ移動">会員登録</a>
+        <a href="contact.html" class="text-gray-600 hover:text-blue-600" aria-label="お問い合わせフォームへ移動">お問い合わせ</a>
+        <a href="register.html" class="btn-register-green text-sm" aria-label="会員登録フォームへ移動">登録で特典</a>
       </div>
     </nav>
   </header>
@@ -58,11 +63,26 @@
     <div class="container mx-auto">
       <h1 class="text-4xl font-bold mb-6">川口市で独居高齢者を支える</h1>
       <p class="text-large mb-4" id="hero-desc">おひとりさま応援隊は、訪問介護、見守り、ワークショップ、食事支援であなたの生活をサポート。24時間無料相談、緊急対応も即時。</p>
-      <p class="text-large mb-8">お問い合わせは電話、LINE、フォームで簡単！会員登録で特典を受けよう。</p>
-      <div class="flex justify-center space-x-4 flex-wrap">
-        <a href="contact.html" class="btn-primary m-2" aria-label="お問い合わせページへ移動" aria-describedby="hero-desc">お問い合わせ</a>
-        <a href="register.html" class="btn-register m-2" aria-label="会員登録ページへ移動" aria-describedby="hero-desc">会員登録</a>
-        <a href="tel:+81-48-123-4567" class="btn-primary m-2" aria-label="電話で相談">電話で相談</a>
+      <p class="text-large mb-8">今すぐ相談！24時間対応 → 登録で優先予約と特典 →</p>
+      <div class="flex justify-center space-x-6 flex-wrap">
+        <a href="contact.html" class="btn-primary m-2" aria-label="お問い合わせフォームへ移動" aria-describedby="hero-desc" role="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          今すぐ相談
+        </a>
+        <a href="register.html" class="btn-register-green m-2" aria-label="会員登録フォームへ移動" aria-describedby="hero-desc" role="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" aria-hidden="true">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+          </svg>
+          登録で特典
+        </a>
+        <a href="tel:+81-48-123-4567" class="btn-primary m-2" aria-label="電話で相談" role="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          電話で相談
+        </a>
       </div>
     </div>
   </section>
@@ -70,7 +90,8 @@
   <!-- サービスセクション -->
   <section id="services" class="section">
     <div class="container mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-12">私たちのサービス</h2>
+      <h2 class="text-3xl font-bold mb-4">私たちのサービス</h2>
+      <p class="text-large mb-8">相談で最適なサービスを → 登録で簡単スタート →</p>
       <div class="carousel" role="region" aria-label="サービス一覧" id="carousel">
         <div class="carousel-item">
           <img src="https://via.placeholder.com/600x200?text=訪問介護" alt="訪問介護">
@@ -97,10 +118,20 @@
         <button class="btn-secondary prev-slide" aria-label="前のサービス" aria-controls="carousel">前</button>
         <button class="btn-secondary next-slide" aria-label="次のサービス" aria-controls="carousel">次</button>
       </div>
-      <p class="text-large mt-8">あなたに合ったサービスを提案します！詳細はお問い合わせを。</p>
-      <div class="flex justify-center space-x-4 mt-4 flex-wrap">
-        <a href="contact.html" class="btn-primary m-2" aria-label="お問い合わせページへ移動">お問い合わせ</a>
-        <a href="register.html" class="btn-register m-2" aria-label="会員登録ページへ移動">会員登録で優先予約</a>
+      <p class="text-large mt-8">最適なサービスを提案します！</p>
+      <div class="flex justify-center space-x-6 mt-4 flex-wrap">
+        <a href="contact.html" class="btn-primary m-2" aria-label="お問い合わせフォームへ移動" role="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          今すぐ相談
+        </a>
+        <a href="register.html" class="btn-register-green m-2" aria-label="会員登録フォームへ移動" role="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" aria-hidden="true">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+          </svg>
+          登録で特典
+        </a>
       </div>
     </div>
   </section>
@@ -108,7 +139,7 @@
   <!-- 私たちについてセクション -->
   <section id="about" class="section bg-gray-100">
     <div class="container mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-12">私たちについて</h2>
+      <h2 class="text-3xl font-bold mb-4">私たちについて</h2>
       <p class="text-large mb-8">おひとりさま応援隊は、川口市で20年の実績を持つ介護福祉士チーム。独居高齢者の生活を支え、安心と笑顔をお届けします。</p>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div class="card">
@@ -120,13 +151,29 @@
           <p class="text-large">介護福祉士 山田太郎を中心に、資格を持ったスタッフが対応。</p>
         </div>
       </div>
+      <p class="text-large mt-8">ご質問はこちら →</p>
+      <div class="flex justify-center space-x-6 mt-4 flex-wrap">
+        <a href="contact.html" class="btn-primary m-2" aria-label="お問い合わせフォームへ移動" role="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          今すぐ相談
+        </a>
+        <a href="register.html" class="btn-register-green m-2" aria-label="会員登録フォームへ移動" role="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" aria-hidden="true">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+          </svg>
+          登録で特典
+        </a>
+      </div>
     </div>
   </section>
 
   <!-- 利用者の声セクション -->
   <section id="testimonials" class="section">
     <div class="container mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-12">利用者の声</h2>
+      <h2 class="text-3xl font-bold mb-4">利用者の声</h2>
+      <p class="text-large mb-8">サービスを体験した方の声。あなたも始めてみませんか？ →</p>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="card">
           <p class="text-large mb-4">"訪問介護のおかげで毎日が楽になりました。スタッフが親切で安心です。"</p>
@@ -141,18 +188,33 @@
           <p class="font-semibold">鈴木さん（68歳）</p>
         </div>
       </div>
+      <div class="flex justify-center space-x-6 mt-8 flex-wrap">
+        <a href="contact.html" class="btn-primary m-2" aria-label="お問い合わせフォームへ移動" role="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          今すぐ相談
+        </a>
+        <a href="register.html" class="btn-register-green m-2" aria-label="会員登録フォームへ移動" role="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" aria-hidden="true">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+          </svg>
+          登録で特典
+        </a>
+      </div>
     </div>
   </section>
 
   <!-- FAQセクション -->
   <section id="faq" class="section bg-gray-100">
     <div class="container mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-12">よくある質問</h2>
+      <h2 class="text-3xl font-bold mb-4">よくある質問</h2>
+      <p class="text-large mb-8">ご不明点はこちらで解決 →</p>
       <div class="max-w-2xl mx-auto">
         <div class="faq-item">
           <button class="btn-secondary w-full text-left toggle-faq" aria-expanded="false" aria-controls="faq-1">サービス費用はどのくらいですか？</button>
           <div class="faq-answer" id="faq-1">
-            <p class="text-large mt-4">訪問介護は500円/時間（保険適用1,800円/回）、見守りは200円/10分、ワークショップは1,000円/回、食事支援は500円/食です。詳細は <a href="contact.html" class="text-blue-600 hover:underline" aria-label="お問い合わせページへ移動">お問い合わせ</a> ください。</p>
+            <p class="text-large mt-4">訪問介護は500円/時間（保険適用1,800円/回）、見守りは200円/10分、ワークショップは1,000円/回、食事支援は500円/食です。詳細は <a href="contact.html" class="text-blue-600 hover:underline" aria-label="お問い合わせフォームへ移動">お問い合わせ</a> ください。</p>
           </div>
         </div>
         <div class="faq-item">
@@ -164,111 +226,22 @@
         <div class="faq-item">
           <button class="btn-secondary w-full text-left toggle-faq" aria-expanded="false" aria-controls="faq-3">川口市外でも利用できますか？</button>
           <div class="faq-answer" id="faq-3">
-            <p class="text-large mt-4">現在、川口市内限定です。市外の方は <a href="contact.html" class="text-blue-600 hover:underline" aria-label="お問い合わせページへ移動">お問い合わせ</a> でご相談ください。</p>
+            <p class="text-large mt-4">現在、川口市内限定です。市外の方は <a href="contact.html" class="text-blue-600 hover:underline" aria-label="お問い合わせフォームへ移動">お問い合わせ</a> でご相談ください。</p>
           </div>
         </div>
       </div>
+      <div class="flex justify-center space-x-6 mt-8 flex-wrap">
+        <a href="contact.html" class="btn-primary m-2" aria-label="お問い合わせフォームへ移動" role="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          今すぐ相談
+        </a>
+        <a href="register.html" class="btn-register-green m-2" aria-label="会員登録フォームへ移動" role="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" aria-hidden="true">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+          </svg>
+          登録で特典
+        </a>
+      </div>
     </div>
-  </section>
-
-  <!-- 固定連絡ボタン -->
-  <div class="sticky-contact flex space-x-4">
-    <a href="contact.html" class="bg-blue-600 text-white px-4 py-2 rounded-lg" aria-label="お問い合わせページへ移動">お問い合わせ</a>
-    <a href="tel:+81-48-123-4567" class="bg-blue-600 text-white px-4 py-2 rounded-lg" aria-label="電話で相談">電話：048-123-4567</a>
-    <a href="https://line.me/R/ti/p/YOUR_LINE_ID" class="bg-green-500 text-white px-4 py-2 rounded-lg" aria-label="LINEで相談">LINEで相談</a>
-  </div>
-
-  <!-- フッター -->
-  <footer class="bg-gray-800 text-white py-8">
-    <div class="container mx-auto text-center">
-      <p>© 2025 おひとりさま応援隊 川口市. All rights reserved.</p>
-      <p class="mt-2">運営：介護福祉士 山田太郎 | 所在地：埼玉県川口市 | <a href="mailto:support@ohitorisama.com" class="text-blue-400">support@ohitorisama.com</a></p>
-      <p class="mt-2"><a href="privacy.html" class="text-blue-400">個人情報保護方針</a> | <a href="register.html" class="btn-register text-sm" aria-label="会員登録ページへ移動">会員登録</a> | <a href="https://www.city.kawaguchi.lg.jp/" target="_blank" class="text-blue-400">川口市役所</a></p>
-    </div>
-  </footer>
-
-  <script>
-    // 運営者向け設定：
-    // 1. LINE：https://line.me/R/ti/p/YOUR_LINE_ID を公式アカウントのリンクに置換
-    // 2. QRコード：LINE公式アカウントのQRコード画像をホスティングし、contact.htmlの<img src="https://YOUR_QR_CODE_URL">に設定
-    //    例：Googleドライブやホスティングサービスで公開
-    // 3. カルーセル画像：https://via.placeholder.com を実際のサービス画像に置換
-    //    例：訪問介護、見守り等の画像をホスティング
-
-    // テスト項目：
-    // 1. HTML：W3Cバリデーターでエラー0（https://validator.w3.org/）
-    // 2. CSS：コントラスト比4.5:1（#3b82f6 vs #ffffff）、モバイル対応（@media）
-    // 3. JavaScript：ESLintでエラー0、カルーセルとFAQの動作、イベントリスナー重複なし
-    // 4. アクセシビリティ：WCAG 2.1 AA準拠、NVDA/VoiceOverでセクション移動、ARIA属性
-    // 5. 機能：
-    //    - カルーセル：前/次ボタンでスライド、キーボード操作
-    //    - FAQ：トグルで回答表示、スクリーンリーダー対応
-    //    - リンク：お問い合わせ(contact.html)、会員登録(register.html)、電話/LINE動作
-    // 6. セキュリティ：XSS（FAQ, カルーセルで<script>無効化）
-    // 7. モバイル：タップ操作、ボタン視認、スクロール
-    // 8. ブラウザ：Chrome, Safari, Firefoxで動作確認
-    // 9. 移行：お問い合わせ/会員登録ボタンのクリックで正しいページ遷移
-
-    // 入力サニタイズ
-    function sanitizeInput(input) {
-      if (typeof input !== 'string') {
-        // console.warn('Non-string input detected:', input);
-        return '';
-      }
-      const div = document.createElement('div');
-      div.textContent = input;
-      return div.innerHTML.replace(/[<>&]/g, '');
-    }
-
-    // サービスカルーセル
-    const carousel = document.querySelector('.carousel');
-    const items = document.querySelectorAll('.carousel-item');
-    const prevBtn = document.querySelector('.prev-slide');
-    const nextBtn = document.querySelector('.next-slide');
-    let currentIndex = 0;
-
-    function updateCarousel() {
-      if (!carousel || !items.length) {
-        // console.error('Carousel or items not found');
-        return;
-      }
-      carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-      // console.log('Carousel updated to index:', currentIndex);
-    }
-
-    if (prevBtn && nextBtn) {
-      prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + items.length) % items.length;
-        updateCarousel();
-      }, { once: false });
-
-      nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % items.length;
-        updateCarousel();
-      }, { once: false });
-    } else {
-      // console.error('Carousel buttons not found');
-    }
-
-    // FAQトグル
-    const faqButtons = document.querySelectorAll('.toggle-faq');
-    faqButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const answer = document.getElementById(button.getAttribute('aria-controls'));
-        if (!answer) {
-          // console.error('FAQ answer not found for:', button.getAttribute('aria-controls'));
-          return;
-        }
-        const isExpanded = answer.classList.toggle('active');
-        button.setAttribute('aria-expanded', isExpanded);
-        // console.log('FAQ toggled:', button.textContent, 'Expanded:', isExpanded);
-      }, { once: false });
-    });
-
-    // 初期化
-    if (carousel && items.length) {
-      updateCarousel();
-    }
-  </script>
-</body>
-</html>
