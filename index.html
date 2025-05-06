@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="おひとりさま応援隊川口市は、独居高齢者のための訪問介護、見守り、ワークショップ、食事支援を提供。無料相談は24時間受付。">
-  <meta name="keywords" content="川口市, 独居高齢者, 訪問介護, 見守り, ワークショップ, 食事支援">
-  <title>おひとりさま応援隊 川口市 - 独居高齢者向けサポート</title>
+  <meta name="description" content="おひとりさま応援隊川口市のお問い合わせページ。訪問介護、見守り、食事支援の無料相談・予約を24時間受付。">
+  <meta name="keywords" content="川口市, 独居高齢者, 訪問介護, 見守り, お問い合わせ">
+  <title>お問い合わせ - おひとりさま応援隊 川口市</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
     body { font-family: 'Noto Sans JP', sans-serif; background-color: #f9fafb; }
@@ -20,154 +20,162 @@
     .card { background-color: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 24px; margin: 16px; }
     .text-large { font-size: 1.6rem; line-height: 2.2rem; }
     .sticky-contact { position: fixed; bottom: 20px; right: 20px; background-color: #3b82f6; color: white; padding: 10px 20px; border-radius: 8px; z-index: 1000; }
-    .carousel { display: flex; overflow: hidden; width: 100%; }
-    .carousel-item { flex: 0 0 100%; transition: transform 0.5s ease; }
-    .carousel-item img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; }
-    .faq-item { margin-bottom: 16px; }
-    .faq-answer { display: none; }
-    .faq-answer.active { display: block; }
+    .recommendation-details { display: none; }
+    .recommendation-details.active { display: block; }
+    .comparison-details { display: none; }
+    .comparison-details.active { display: block; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { border: 1px solid #e5e7eb; padding: 12px; text-align: left; }
+    th { background-color: #f3f4f6; }
+    tr.highlight { background-color: #e0f2fe; }
+    .error-message { color: #dc2626; font-size: 1.2rem; font-weight: 600; margin-top: 4px; display: none; }
+    .error-message.active { display: block; }
+    input[aria-invalid="true"], select[aria-invalid="true"], textarea[aria-invalid="true"] { border-color: #dc2626; }
     @media (max-width: 640px) {
       .text-large { font-size: 1.3rem; }
       .btn-primary { font-size: 1.1rem; padding: 12px 24px; }
       .btn-secondary { font-size: 0.9rem; padding: 8px 16px; }
       .btn-register { font-size: 0.9rem; padding: 6px 12px; }
       .sticky-contact { font-size: 0.9rem; padding: 8px 16px; }
-      .carousel-item img { height: 150px; }
+      table { display: block; overflow-x: auto; }
+      .error-message { font-size: 1rem; }
     }
   </style>
 </head>
 <body>
   <!-- ヘッダー（淡い緑色） -->
-  <header class="bg-emerald-100 shadow-md" role="banner">
+  <header class="bg-emerald-100 shadow-md">
     <nav class="container mx-auto flex items-center justify-between p-4">
       <div class="text-2xl font-bold text-blue-600">おひとりさま応援隊 川口市</div>
       <div class="flex space-x-4 items-center">
-        <a href="#home" class="text-gray-600 hover:text-blue-600" aria-current="page">ホーム</a>
-        <a href="#services" class="text-gray-600 hover:text-blue-600">サービス</a>
-        <a href="#about" class="text-gray-600 hover:text-blue-600">私たちについて</a>
-        <a href="#testimonials" class="text-gray-600 hover:text-blue-600">利用者の声</a>
-        <a href="#faq" class="text-gray-600 hover:text-blue-600">よくある質問</a>
+        <a href="index.html#home" class="text-gray-600 hover:text-blue-600">ホーム</a>
+        <a href="index.html#services" class="text-gray-600 hover:text-blue-600">サービス</a>
+        <a href="index.html#about" class="text-gray-600 hover:text-blue-600">私たちについて</a>
+        <a href="index.html#testimonials" class="text-gray-600 hover:text-blue-600">利用者の声</a>
+        <a href="index.html#faq" class="text-gray-600 hover:text-blue-600">よくある質問</a>
         <a href="contact.html" class="text-gray-600 hover:text-blue-600">お問い合わせ</a>
         <a href="register.html" class="btn-register">会員登録</a>
       </div>
     </nav>
   </header>
 
-  <!-- ヒーローセクション -->
-  <section id="home" class="section bg-gray-100 text-center">
-    <div class="container mx-auto">
-      <h1 class="text-4xl font-bold mb-6">川口市で独居高齢者を支える</h1>
-      <p class="text-large mb-8">おひとりさま応援隊は、訪問介護、見守り、ワークショップ、食事支援であなたの生活をサポート。24時間無料相談、緊急対応も即時。</p>
-      <div class="flex justify-center space-x-4">
-        <a href="contact.html" class="btn-primary">無料相談</a>
-        <a href="tel:+81-48-123-4567" class="btn-primary">電話で相談</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- サービスセクション -->
-  <section id="services" class="section">
+  <!-- お問い合わせセクション -->
+  <section class="section bg-gray-100">
     <div class="container mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-12">私たちのサービス</h2>
-      <div class="carousel" role="region" aria-label="サービス一覧">
-        <div class="carousel-item">
-          <img src="https://via.placeholder.com/600x200?text=訪問介護" alt="訪問介護">
-          <h3 class="text-xl font-semibold mt-4">訪問介護</h3>
-          <p class="text-large">日常生活の支援（入浴、食事、移動）を介護福祉士が提供。保険適用で安心。</p>
-        </div>
-        <div class="carousel-item">
-          <img src="https://via.placeholder.com/600x200?text=見守り" alt="見守り">
-          <h3 class="text-xl font-semibold mt-4">見守り</h3>
-          <p class="text-large">定期的な訪問やセンサーで安全確認。緊急時は即対応。</p>
-        </div>
-        <div class="carousel-item">
-          <img src="https://via.placeholder.com/600x200?text=ワークショップ" alt="ワークショップ">
-          <h3 class="text-xl font-semibold mt-4">ワークショップ</h3>
-          <p class="text-large">趣味や健康を支えるイベント。地域の仲間と交流。</p>
-        </div>
-        <div class="carousel-item">
-          <img src="https://via.placeholder.com/600x200?text=食事支援" alt="食事支援">
-          <h3 class="text-xl font-semibold mt-4">食事支援</h3>
-          <p class="text-large">栄養バランスの取れた食事をお届け。配食サービスも。</p>
-        </div>
-      </div>
-      <div class="flex justify-center space-x-4 mt-6">
-        <button class="btn-secondary prev-slide" aria-label="前のサービス">前</button>
-        <button class="btn-secondary next-slide" aria-label="次のサービス">次</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- 私たちについてセクション -->
-  <section id="about" class="section bg-gray-100">
-    <div class="container mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-12">私たちについて</h2>
-      <p class="text-large mb-8">おひとりさま応援隊は、川口市で20年の実績を持つ介護福祉士チーム。独居高齢者の生活を支え、安心と笑顔をお届けします。</p>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="card">
-          <h3 class="text-xl font-semibold mb-4">私たちの使命</h3>
-          <p class="text-large">一人ひとりに寄り添い、安心して暮らせる地域社会を築くこと。</p>
-        </div>
-        <div class="card">
-          <h3 class="text-xl font-semibold mb-4">運営者</h3>
-          <p class="text-large">介護福祉士 山田太郎を中心に、資格を持ったスタッフが対応。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 利用者の声セクション -->
-  <section id="testimonials" class="section">
-    <div class="container mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-12">利用者の声</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="card">
-          <p class="text-large mb-4">"訪問介護のおかげで毎日が楽になりました。スタッフが親切で安心です。"</p>
-          <p class="font-semibold">佐藤さん（70歳）</p>
-        </div>
-        <div class="card">
-          <p class="text-large mb-4">"見守りサービスで家族も安心。緊急対応が早くて助かります。"</p>
-          <p class="font-semibold">田中さん（65歳）</p>
-        </div>
-        <div class="card">
-          <p class="text-large mb-4">"ワークショップで新しい友達ができました。楽しい時間が過ごせます。"</p>
-          <p class="font-semibold">鈴木さん（68歳）</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQセクション -->
-  <section id="faq" class="section bg-gray-100">
-    <div class="container mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-12">よくある質問</h2>
-      <div class="max-w-2xl mx-auto">
-        <div class="faq-item">
-          <button class="btn-secondary w-full text-left toggle-faq" aria-expanded="false" aria-controls="faq-1">サービス費用はどのくらいですか？</button>
-          <div class="faq-answer" id="faq-1">
-            <p class="text-large mt-4">訪問介護は500円/時間（保険適用1,800円/回）、見守りは200円/10分、ワークショップは1,000円/回、食事支援は500円/食です。詳細は <a href="contact.html" class="text-blue-600 hover:underline">お問い合わせ</a> ください。</p>
+      <h2 class="text-3xl font-bold mb-12">川口市で無料相談・サービス予約</h2>
+      <p class="text-large mb-8">川口市内ならお電話、LINE、フォーム、メールで24時間いつでも相談。介護福祉士が24時間以内に丁寧にお答えします（緊急時は即対応）。</p>
+      
+      <!-- お問い合わせフォーム -->
+      <div class="card max-w-2xl mx-auto mb-8">
+        <h3 class="text-xl font-semibold mb-4">お問い合わせフォーム</h3>
+        <form id="contact-form" action="https://YOUR_FORM_SUBMIT_URL" method="POST" novalidate>
+          <div class="mb-4">
+            <label for="name" class="block text-left text-gray-700 text-large mb-2">名前（必須）</label>
+            <input type="text" id="name" name="name" class="w-full p-3 border rounded-lg text-large" required aria-describedby="error-name" aria-invalid="false">
+            <div id="error-name" class="error-message"></div>
           </div>
-        </div>
-        <div class="faq-item">
-          <button class="btn-secondary w-full text-left toggle-faq" aria-expanded="false" aria-controls="faq-2">緊急対応は可能ですか？</button>
-          <div class="faq-answer" id="faq-2">
-            <p class="text-large mt-4">はい、24時間対応可能です。お問い合わせフォームで「緊急」と記載、または電話（048-123-4567）でご連絡ください。</p>
+          <div class="mb-4">
+            <label for="contact" class="block text-left text-gray-700 text-large mb-2">連絡先（メールまたは電話、必須）</label>
+            <input type="text" id="contact" name="contact" class="w-full p-3 border rounded-lg text-large" required aria-describedby="error-contact" aria-invalid="false">
+            <div id="error-contact" class="error-message"></div>
           </div>
+          <div class="mb-4">
+            <label for="service" class="block text-left text-gray-700 text-large mb-2">サービス種別</label>
+            <select id="service" name="service" class="w-full p-3 border rounded-lg text-large" required aria-describedby="error-service" aria-invalid="false">
+              <option value="訪問介護">訪問介護</option>
+              <option value="見守り">見守り</option>
+              <option value="ワークショップ">ワークショップ</option>
+              <option value="食事支援">食事支援</option>
+              <option value="その他">その他</option>
+            </select>
+            <div id="error-service" class="error-message"></div>
+          </div>
+          <div class="mb-4">
+            <label for="message" class="block text-left text-gray-700 text-large mb-2">メッセージ（緊急の場合は「緊急」と記載）</label>
+            <textarea id="message" name="message" class="w-full p-3 border rounded-lg text-large" rows="5" aria-describedby="error-message" aria-invalid="false"></textarea>
+            <div id="error-message" class="error-message"></div>
+          </div>
+          <button type="submit" class="btn-primary" aria-label="フォームを送信">送信</button>
+        </form>
+      </div>
+
+      <!-- 動的レコメンドページ -->
+      <div id="recommendation" class="card max-w-2xl mx-auto hidden">
+        <h3 class="text-xl font-semibold mb-4">おすすめサービス</h3>
+        <div id="recommendation-content"></div>
+        <!-- 料金計算機 -->
+        <div class="mt-6">
+          <h4 class="text-lg font-semibold mb-4">料金計算機</h4>
+          <fieldset>
+            <legend class="sr-only">料金計算機</legend>
+            <div class="mb-4">
+              <label for="calc-service" class="block text-left text-gray-700 text-large mb-2">サービス</label>
+              <select id="calc-service" class="w-full p-3 border rounded-lg text-large" aria-describedby="calc-service-desc">
+                <option value="訪問介護">訪問介護 (500円/時間, 保険適用: 1,800円/回)</option>
+                <option value="見守り">見守り (200円/10分)</option>
+                <option value="ワークショップ">ワークショップ (1,000円/回)</option>
+                <option value="食事支援">食事支援 (500円/食)</option>
+              </select>
+              <div id="calc-service-desc" class="sr-only">サービスを選択して料金を計算します</div>
+            </div>
+            <div class="mb-4">
+              <label for="calc-frequency" class="block text-left text-gray-700 text-large mb-2">頻度</label>
+              <select id="calc-frequency" class="w-full p-3 border rounded-lg text-large" aria-describedby="calc-frequency-desc">
+                <!-- 動的に更新 -->
+              </select>
+              <div id="calc-frequency-desc" class="sr-only">サービスの頻度を選択します</div>
+            </div>
+            <div class="mb-4">
+              <label for="calc-period" class="block text-left text-gray-700 text-large mb-2">期間</label>
+              <select id="calc-period" class="w-full p-3 border rounded-lg text-large" aria-describedby="calc-period-desc">
+                <option value="1">1週間</option>
+                <option value="4">1ヶ月</option>
+              </select>
+              <div id="calc-period-desc" class="sr-only">計算する期間を選択します</div>
+            </div>
+            <div class="mb-4">
+              <p id="calc-result" class="text-gray-600 text-large">料金：0円</p>
+            </div>
+          </fieldset>
         </div>
-        <div class="faq-item">
-          <button class="btn-secondary w-full text-left toggle-faq" aria-expanded="false" aria-controls="faq-3">川口市外でも利用できますか？</button>
-          <div class="faq-answer" id="faq-3">
-            <p class="text-large mt-4">現在、川口市内限定です。市外の方は <a href="contact.html" class="text-blue-600 hover:underline">お問い合わせ</a> でご相談ください。</p>
+        <!-- サービス比較表 -->
+        <div class="mt-6">
+          <h4 class="text-lg font-semibold mb-4">サービス比較表</h4>
+          <button class="btn-secondary toggle-comparison mb-4" aria-expanded="false" aria-controls="comparison-details">比較表を見る</button>
+          <div class="comparison-details" id="comparison-details">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">サービス</th>
+                  <th scope="col">料金</th>
+                  <th scope="col">特徴</th>
+                  <th scope="col">対象者</th>
+                </tr>
+              </thead>
+              <tbody id="comparison-table">
+                <!-- 動的に更新 -->
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
+
+      <!-- 連絡方法 -->
+      <div class="flex justify-center space-x-8 flex-wrap">
+        <a href="tel:+81-48-123-4567" class="btn-primary m-2">電話で相談：048-123-4567</a>
+        <a href="https://forms.gle/YOUR_FORM_ID" target="_blank" class="btn-primary m-2">Googleフォームで予約</a>
+        <a href="https://line.me/R/ti/p/YOUR_LINE_ID" target="_blank" class="btn-primary m-2">LINEで相談</a>
+        <a href="mailto:support@ohitorisama.com" class="btn-primary m-2">メールで相談</a>
+      </div>
+      <p class="mt-8 text-gray-600">LINE QRコードをスキャンして友だち追加！</p>
+      <img src="https://YOUR_QR_CODE_URL" alt="LINE QRコード" class="mx-auto mt-4 w-32">
     </div>
   </section>
 
   <!-- 固定連絡ボタン -->
   <div class="sticky-contact flex space-x-4">
-    <a href="tel:+81-48-123-4567" class="bg-blue-600 text-white px-4 py-2 rounded-lg" aria-label="電話で相談">電話：048-123-4567</a>
-    <a href="https://line.me/R/ti/p/YOUR_LINE_ID" class="bg-green-500 text-white px-4 py-2 rounded-lg" aria-label="LINEで相談">LINEで相談</a>
+    <a href="tel:+81-48-123-4567" class="bg-blue-600 text-white px-4 py-2 rounded-lg">電話：048-123-4567</a>
+    <a href="https://line.me/R/ti/p/YOUR_LINE_ID" class="bg-green-500 text-white px-4 py-2 rounded-lg">LINEで相談</a>
   </div>
 
   <!-- フッター -->
@@ -181,22 +189,28 @@
 
   <script>
     // 運営者向け設定：
-    // 1. LINE：https://line.me/R/ti/p/YOUR_LINE_ID を公式アカウントのリンクに置換
-    // 2. QRコード：LINE公式アカウントのQRコード画像をホスティングし、contact.htmlの<img src="https://YOUR_QR_CODE_URL">に設定
+    // 1. フォーム送信先：Google Apps Scriptをウェブアプリとしてデプロイし、URLを https://YOUR_FORM_SUBMIT_URL に設定
+    //    例：https://script.google.com/macros/s/AKfycbw.../exec
+    //    手順：Google Apps Script管理画面 → 新しいデプロイ → ウェブアプリ → アクセス権: 誰でも
+    // 2. Googleフォーム：https://forms.gle/YOUR_FORM_ID を実際のフォームURLに置換
+    // 3. LINE：https://line.me/R/ti/p/YOUR_LINE_ID を公式アカウントのリンクに置換
+    // 4. QRコード：https://YOUR_QR_CODE_URL をLINE公式アカウントのQRコード画像URLに置換
     //    例：Googleドライブやホスティングサービスで公開
 
     // テスト項目：
     // 1. HTML：W3Cバリデーターでエラー0（https://validator.w3.org/）
-    // 2. CSS：コントラスト比4.5:1（#3b82f6 vs #ffffff）、モバイル対応（@media）
-    // 3. JavaScript：ESLintでエラー0、カルーセルとFAQの動作、イベントリスナー重複なし
-    // 4. アクセシビリティ：WCAG 2.1 AA準拠、NVDA/VoiceOverでセクション移動、ARIA属性
-    // 5. 機能：
-    //    - カルーセル：前/次ボタンでスライド、キーボード操作
-    //    - FAQ：トグルで回答表示、スクリーンリーダー対応
-    //    - 固定連絡：電話/LINEリンク動作
-    // 6. セキュリティ：XSS（FAQ, カルーセルで<script>無効化）
-    // 7. モバイル：タップ操作、カルーセル/FAQ視認、スクロール
-    // 8. ブラウザ：Chrome, Safari, Firefoxで動作確認
+    // 2. CSS：コントラスト比4.5:1（#dc2626 vs #ffffff）、モバイル対応（@media）
+    // 3. JavaScript：ESLintでエラー0、fetchのエラーハンドリング、イベントリスナー重複なし
+    // 4. アクセシビリティ：WCAG 2.1 AA準拠、NVDA/VoiceOverでエラーメッセージ読み上げ、ARIA属性
+    // 5. バリデーション：
+    //    - 名前：空、2～50文字、日本語（佐藤太郎）
+    //    - 連絡先：携帯（090-1234-5678）、固定（048-123-4567）、メール（user@domain.com）、不正（123-abc）
+    //    - サービス：有効値（訪問介護など）、不正値なし
+    //    - メッセージ：1000文字以内、緊急検出
+    // 6. セキュリティ：XSS（<script>alert('hack')</script>）無効化、空入力ログ
+    // 7. 送信：正常（スプレッドシートに記録）、エラー（電話・LINE案内）
+    // 8. モバイル：タップ操作、エラーメッセージ視認、スクロール
+    // 9. ブラウザ：Chrome, Safari, Firefoxで動作確認
 
     // 入力サニタイズ
     function sanitizeInput(input) {
@@ -209,54 +223,311 @@
       return div.innerHTML.replace(/[<>&]/g, '');
     }
 
-    // サービスカルーセル
-    const carousel = document.querySelector('.carousel');
-    const items = document.querySelectorAll('.carousel-item');
-    const prevBtn = document.querySelector('.prev-slide');
-    const nextBtn = document.querySelector('.next-slide');
-    let currentIndex = 0;
-
-    function updateCarousel() {
-      if (!carousel || !items.length) {
-        // console.error('Carousel or items not found');
-        return;
+    // バリデーション関数
+    function validateField(field) {
+      if (!field) {
+        // console.error('Field element not found');
+        return false;
       }
-      carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-      // console.log('Carousel updated to index:', currentIndex);
+      const value = field.value.trim();
+      const errorDiv = document.getElementById(`error-${field.id}`);
+      if (!errorDiv) {
+        // console.error(`Error div not found for field: ${field.id}`);
+        return false;
+      }
+      let isValid = true;
+      let message = '';
+
+      // console.log(`Validating field: ${field.id}, value: ${value}`);
+
+      if (field.id === 'name') {
+        if (!value) {
+          isValid = false;
+          message = '名前を入れてください';
+        } else if (value.length < 2 || value.length > 50) {
+          isValid = false;
+          message = '名前を2～50文字の日本語で入れてください';
+        } else if (!/^[ぁ-んァ-ヶ一-龠\s]+$/.test(value)) {
+          isValid = false;
+          message = '名前は日本語のみで入れてください';
+        }
+      } else if (field.id === 'contact') {
+        if (!value) {
+          isValid = false;
+          message = '携帯番号かメールを入れてください';
+        } else {
+          const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+          const mobileRegex = /^0[789]0[- ]?\d{4}[- ]?\d{4}$/;
+          const phoneRegex = /^0\d{1,4}[- ]?\d{1,4}[- ]?\d{4}$/;
+          if (!emailRegex.test(value) && !mobileRegex.test(value) && !phoneRegex.test(value)) {
+            isValid = false;
+            message = '携帯番号（例：090-1234-5678）かメール（例：user@domain.com）を入れてください';
+          }
+        }
+      } else if (field.id === 'service') {
+        const validServices = ['訪問介護', '見守り', 'ワークショップ', '食事支援', 'その他'];
+        if (!validServices.includes(value)) {
+          isValid = false;
+          message = 'サービスを選んでください';
+        }
+      } else if (field.id === 'message') {
+        if (value.length > 1000) {
+          isValid = false;
+          message = 'メッセージを1000文字以内で入れてください';
+        }
+      }
+
+      field.setAttribute('aria-invalid', !isValid);
+      errorDiv.textContent = message;
+      errorDiv.classList.toggle('active', !isValid);
+      return isValid;
     }
 
-    if (prevBtn && nextBtn) {
-      prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + items.length) % items.length;
-        updateCarousel();
-      }, { once: false });
+    // フォーム全体のバリデーション
+    function validateForm() {
+      const fields = ['name', 'contact', 'service', 'message'];
+      let isValid = true;
+      let firstErrorField = null;
 
-      nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % items.length;
-        updateCarousel();
-      }, { once: false });
-    } else {
-      // console.error('Carousel buttons not found');
-    }
+      // console.log('Validating form');
 
-    // FAQトグル
-    const faqButtons = document.querySelectorAll('.toggle-faq');
-    faqButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const answer = document.getElementById(button.getAttribute('aria-controls'));
-        if (!answer) {
-          // console.error('FAQ answer not found for:', button.getAttribute('aria-controls'));
+      fields.forEach(id => {
+        const field = document.getElementById(id);
+        if (!field) {
+          // console.error(`Field not found: ${id}`);
+          isValid = false;
           return;
         }
-        const isExpanded = answer.classList.toggle('active');
-        button.setAttribute('aria-expanded', isExpanded);
-        // console.log('FAQ toggled:', button.textContent, 'Expanded:', isExpanded);
-      }, { once: false });
+        if (!validateField(field)) {
+          isValid = false;
+          if (!firstErrorField) firstErrorField = field;
+        }
+      });
+
+      if (!isValid && firstErrorField) {
+        // console.log(`Focusing on first error field: ${firstErrorField.id}`);
+        firstErrorField.focus();
+      }
+
+      return isValid;
+    }
+
+    // リアルタイムバリデーション
+    ['name', 'contact', 'service', 'message'].forEach(id => {
+      const field = document.getElementById(id);
+      if (field) {
+        field.addEventListener('input', () => validateField(field), { once: false });
+        field.addEventListener('blur', () => validateField(field), { once: false });
+      } else {
+        // console.error(`Field not found for event listener: ${id}`);
+      }
     });
 
-    // 初期化
-    if (carousel && items.length) {
-      updateCarousel();
+    // フォーム送信処理
+    const form = document.getElementById('contact-form');
+    if (form) {
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        // console.log('Form submission started');
+
+        if (!validateForm()) {
+          // console.log('Form validation failed');
+          return;
+        }
+
+        const message = document.getElementById('message').value.trim();
+        if (message.includes('緊急') && !confirm('緊急でいいですか？')) {
+          // console.log('User cancelled emergency submission');
+          return;
+        }
+
+        const formData = new FormData();
+        ['name', 'contact', 'service', 'message'].forEach(id => {
+          const field = document.getElementById(id);
+          if (field) {
+            formData.append(id, sanitizeInput(field.value));
+          }
+        });
+
+        const recommendationDiv = document.getElementById('recommendation');
+        const recommendationContent = document.getElementById('recommendation-content');
+        const calcService = document.getElementById('calc-service');
+        const calcFrequency = document.getElementById('calc-frequency');
+        const calcPeriod = document.getElementById('calc-period');
+        const calcResult = document.getElementById('calc-result');
+        const comparisonTable = document.getElementById('comparison-table');
+
+        if (!recommendationDiv || !recommendationContent || !calcService || !calcFrequency || !calcPeriod || !calcResult || !comparisonTable) {
+          // console.error('Required DOM elements missing');
+          alert('ページにエラーがあります。お電話（048-123-4567）でご連絡ください。');
+          return;
+        }
+
+        try {
+          // console.log('Sending form data to:', form.action);
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData
+          });
+
+          if (!response.ok) {
+            throw new Error(`HTTPエラー: ${response.status} ${response.statusText}`);
+          }
+
+          let data;
+          try {
+            data = await response.json();
+          } catch (jsonError) {
+            throw new Error(`JSON解析エラー: ${jsonError.message}`);
+          }
+
+          // console.log('Received response:', data);
+
+          recommendationDiv.classList.remove('hidden');
+          recommendationContent.innerHTML = `
+            <p class="text-gray-600 mb-4">${sanitizeInput(data.message)}</p>
+            <div class="mb-4">
+              <strong>サービス：</strong> ${sanitizeInput(data.service)}<br>
+              <strong>緊急度：</strong> ${sanitizeInput(data.urgency)}<br>
+              <strong>ニーズ：</strong> ${data.needs.map(sanitizeInput).join(', ')}
+            </div>
+            <button class="btn-secondary toggle-details mb-4" aria-expanded="false" aria-controls="recommendation-details">詳細を見る</button>
+            <div class="recommendation-details" id="recommendation-details">
+              <p class="text-gray-600 mb-4">${sanitizeInput(data.details)}</p>
+              <a href="https://forms.gle/YOUR_FORM_ID" target="_blank" class="btn-primary mr-4">予約する</a>
+              <a href="tel:+81-48-123-4567" class="btn-primary">電話で相談</a>
+            </div>
+          `;
+
+          // 料金計算機の初期化
+          calcService.value = data.service;
+          updateFrequencyOptions(data.service);
+          calculateCost();
+
+          // サービス比較表
+          comparisonTable.innerHTML = data.comparison.map(item => `
+            <tr ${item.service === data.service ? 'class="highlight"' : ''}>
+              <td>${sanitizeInput(item.service)}</td>
+              <td>${sanitizeInput(item.price)}</td>
+              <td>${sanitizeInput(item.features)}</td>
+              <td>${sanitizeInput(item.target)}</td>
+            </tr>
+          `).join('');
+
+          // イベントリスナー
+          calcService.addEventListener('change', () => {
+            updateFrequencyOptions(calcService.value);
+            calculateCost();
+          }, { once: false });
+          calcFrequency.addEventListener('change', calculateCost, { once: false });
+          calcPeriod.addEventListener('change', calculateCost, { once: false });
+
+          recommendationDiv.querySelector('.toggle-details').addEventListener('click', () => {
+            const details = recommendationDiv.querySelector('.recommendation-details');
+            const isExpanded = details.classList.toggle('active');
+            recommendationDiv.querySelector('.toggle-details').setAttribute('aria-expanded', isExpanded);
+          }, { once: false });
+
+          recommendationDiv.querySelector('.toggle-comparison').addEventListener('click', () => {
+            const comparison = recommendationDiv.querySelector('.comparison-details');
+            const isExpanded = comparison.classList.toggle('active');
+            recommendationDiv.querySelector('.toggle-comparison').setAttribute('aria-expanded', isExpanded);
+          }, { once: false });
+
+          alert('お問い合わせありがとうございます！川口市の担当者から24時間以内にご連絡します（緊急時は即対応）。');
+          form.reset();
+          document.querySelectorAll('.error-message').forEach(div => {
+            div.textContent = '';
+            div.classList.remove('active');
+          });
+          document.querySelectorAll('input, select, textarea').forEach(field => {
+            field.setAttribute('aria-invalid', 'false');
+          });
+        } catch (error) {
+          // console.error('Form submission error:', error.message, error.stack);
+          alert('サーバーエラーが発生しました。お電話（048-123-4567）または LINE でご連絡ください。');
+        }
+      }, { once: false });
+    } else {
+      // console.error('Form element not found');
+      alert('フォームが見つかりません。お電話（048-123-4567）でご連絡ください。');
+    }
+
+    // 頻度オプションの更新
+    function updateFrequencyOptions(service) {
+      const calcFrequency = document.getElementById('calc-frequency');
+      if (!calcFrequency) {
+        // console.error('calc-frequency element not found');
+        return;
+      }
+      let options = [];
+      if (service === '訪問介護') {
+        options = [
+          { value: 1, text: '週1回' },
+          { value: 2, text: '週2回' },
+          { value: 3, text: '週3回' }
+        ];
+      } else if (service === '見守り') {
+        options = [
+          { value: 1, text: '週1回' },
+          { value: 2, text: '週2回' }
+        ];
+      } else if (service === 'ワークショップ') {
+        options = [
+          { value: 1, text: '1回' },
+          { value: 2, text: '2回' }
+        ];
+      } else if (service === '食事支援') {
+        options = [
+          { value: 7, text: '1日1食' },
+          { value: 14, text: '1日2食' }
+        ];
+      } else {
+        options = [{ value: 1, text: '1回' }];
+      }
+
+      calcFrequency.innerHTML = options.map(opt => `
+        <option value="${opt.value}">${opt.text}</option>
+      `).join('');
+    }
+
+    // 料金計算
+    function calculateCost() {
+      const calcService = document.getElementById('calc-service');
+      const calcFrequency = document.getElementById('calc-frequency');
+      const calcPeriod = document.getElementById('calc-period');
+      const calcResult = document.getElementById('calc-result');
+
+      if (!calcService || !calcFrequency || !calcPeriod || !calcResult) {
+        // console.error('Calculator elements missing');
+        return;
+      }
+
+      const service = calcService.value;
+      const frequency = parseInt(calcFrequency.value);
+      const period = parseInt(calcPeriod.value);
+
+      let unitPrice = 0;
+      let insurancePrice = null;
+      if (service === '訪問介護') {
+        unitPrice = 500; // 円/時間
+        insurancePrice = 1800; // 円/回
+      } else if (service === '見守り') {
+        unitPrice = 200; // 円/10分
+      } else if (service === 'ワークショップ') {
+        unitPrice = 1000; // 円/回
+      } else if (service === '食事支援') {
+        unitPrice = 500; // 円/食
+      }
+
+      const frequencyMultiplier = service === '食事支援' ? frequency : frequency;
+      const total = unitPrice * frequencyMultiplier * period;
+      let resultText = `料金：${total.toLocaleString()}円`;
+      if (insurancePrice && service === '訪問介護') {
+        const insuranceTotal = insurancePrice * frequency * period;
+        resultText += `（介護保険適用：${insuranceTotal.toLocaleString()}円）`;
+      }
+      calcResult.textContent = resultText;
     }
   </script>
 </body>
